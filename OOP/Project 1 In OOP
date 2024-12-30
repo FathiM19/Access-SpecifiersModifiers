@@ -15,6 +15,7 @@ private:
 
 	bool _IsZero(float Number)
 	{
+		_LastOperation = "getting the final result";
 		return (Number == 0);
 	}
 
