@@ -61,6 +61,7 @@ public:
 
 	float GetFinalResults()
 	{
+		_LastOperation = "getting the final result";
 		return _Result;
 	}
 
