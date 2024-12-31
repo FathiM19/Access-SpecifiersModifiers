@@ -1,0 +1,123 @@
+//The copy constructor is used to initialize the members of a newly created object by copying the members of an already existing object.
+//The process of initializing members of an object through a copy constructor is known as copy initialization.
+
+/*It is also called member-wise initialization because the copy constructor initializes one
+object with the existing object, both belonging to the same class on a member-by-member copy basis.*/
+
+//The copy constructor can be defined explicitly by the programmer. If the programmer does not define the copy constructor, the compiler does it for us.
+
+/*
+You should always implement a copy constructor in your code.
+No, because the compiler will do it for you.
+*/
+
+/*
+What are the types of constructors:
+Default Constructor
+Parameterized Constructor
+Copy Constructor
+*/
+
+/*
+Can you have more than one constructor in a class?
+Yes, You can using function overloading, and this is called "Constructor Overloading"
+*/
+
+
+
+
+#include <iostream>
+using namespace std;
+
+class clsAddress
+{
+private:
+	string _AddressLine1;
+	string _AddressLine2;
+	string _POVox;
+	string _ZipCode;
+
+public:
+	
+	clsAddress(string AddressLine1, string AddressLine2, string POVox, string ZipCode)
+	{
+		_AddressLine1 = AddressLine1;
+		_AddressLine2 = AddressLine2;
+		_POVox = POVox;
+		_ZipCode = ZipCode;
+	}
+
+	// Copy Constructor
+	clsAddress(clsAddress& old_obj)
+	{
+		_AddressLine1 = old_obj.AddressLine1();
+		_AddressLine2 = old_obj.AddressLine2();
+		_POVox = old_obj.POVox();
+		_ZipCode = old_obj.ZipCode();
+	}
+
+	// Property Set
+	void setAddressLine1(string Text)
+	{
+		_AddressLine1 = Text;
+	}
+
+	// Property Get
+	string AddressLine1()
+	{
+		return _AddressLine1;
+	}
+
+	void setAddressLine2(string Text)
+	{
+		_AddressLine2 = Text;
+	}
+
+	string AddressLine2()
+	{
+		return _AddressLine2;
+	}
+
+	void setPOVox(string Text)
+	{
+		_POVox = Text;
+	}
+
+	string POVox()
+	{
+		return _POVox;
+	}
+
+	void setZipCode(string Text)
+	{
+		_ZipCode = Text;
+	}
+
+	string ZipCode()
+	{
+		return _ZipCode;
+	}
+
+	void PrintAddress()
+	{
+		cout << "Address Details:\n";
+		cout << "________________________________\n";
+		cout << "AddressLine1: " << _AddressLine1 << endl;
+		cout << "AddressLine2: " << _AddressLine2 << endl;
+		cout << "POVox       : " << _POVox << endl;
+		cout << "ZipCode     : " << _ZipCode << endl;
+		cout << "________________________________\n\n";
+	}
+};
+
+int main()
+{
+	clsAddress Address1("Queen street", "C 1333", "19992", "77777");
+	Address1.PrintAddress();
+
+	clsAddress Address2 = Address1;
+	Address2.PrintAddress();
+
+	system("pause>0");
+	return 0;
+}
